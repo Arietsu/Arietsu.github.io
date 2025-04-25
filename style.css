@@ -1,0 +1,806 @@
+
+@charset "utf-8";
+
+/* 全体のスタイル調整 */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* bodyの初期スタイル調整 */
+body {
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Perpetua Titling MT','Noto Sans';
+    font-weight: 400;
+    color: #000000;
+    background-image: url(../img/bg_white.jpg);
+}
+
+/* 初期スタイル調整 */
+h1,h2,
+/* {
+    margin:top 0;
+    line-height:1.5;
+    letter-spacing:0.2em;
+    text-align:center;
+} */
+
+/* h2関連 */
+
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid;
+    color: #555;
+    font-size: 36px;
+    font-weight: 200;
+  
+    
+}
+
+h2::before {
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0rem;
+    right: 0rem;
+    border-bottom: 3px solid;
+    content: "";
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    text-align: justify;
+    color: #555;
+    
+    
+    
+}
+
+address {
+    font-style: normal;
+}
+
+a {
+    color: #000000;
+
+}
+
+ul {
+    margin: 1em 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section {
+    padding-top: 100px 0;
+}
+/* 初期スタイル調整ここまで */ 
+
+/* 共通スタイル調整　ここから */
+
+
+
+/*テキスト関連*/
+.txt-center {
+    text-align: center;
+    /* インラインの時中心に文章を寄せる */
+}
+.txt-lead {
+    font-size: 18px;
+    font-weight: 700;
+    /* fontの太さ */
+}
+
+/* ボタン関連 */
+.btn {
+    display: block;
+    text-align: center;
+    
+    /* 幅・高さ指定できる要素の後は改行される */
+    padding: 20px 35px;
+    /* 内余白　上下　左右 */
+    border-radius: 8px;
+    margin: 100px;
+   
+    border: none;
+    background-color: #fff;
+    font-family: 'Noto Sans';
+}
+
+.fa-solid .fa-arrow-right {
+    margin-left: 1em;
+}
+
+.btn:hover,
+.btn:focus {
+    /* hover ボタンの上にカーソルが乗ったときに指定の色になるなど
+    　　focus 要素がアクティブになったときに適用される */
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+/* web予約ボタン */
+.btn-reserve {
+    color:#fff;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* レイアウト関連 */
+.inner {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+/* 各ブロックの左右の余白を指定 */
+
+/* PC用のスタイル */
+@media (min-width:768px) {
+    .inner {
+        max-width: 1200px;
+    }
+}
+
+/* モバイルとPCでの表示に関するスタイル */
+.sp-only {
+    display: block;
+}
+
+.pc-only {
+    display: none;
+}
+
+/* PC用のスタイル */
+@media (min-width:768px) {
+.sp-only {
+    display: none;
+} 
+}
+
+.pc-only {
+display: block;
+}
+
+/* 共通スタイル調整　ここまで */
+
+/* ヘッダーブロック　ここから */
+.header {
+  width: 100%;
+  height: 63px;
+  padding: 0,15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-image: url(../img/wood.jpg) 
+}
+
+@media (min-width:768px) {
+    .header{
+        padding: 0px 15px;
+    }
+}
+/* ナビゲーションのメニュー項目 */
+/* .header-navi {
+    display: none;
+} */
+
+/* サイトロゴ表示 */
+.logo-area {
+    font-size: 24px;
+    line-height: 20px;
+    width: 162px;
+    padding: 10px;
+    text-align: center;
+   
+
+}
+
+.logo-area a {
+    text-decoration-line: none;
+ 
+}
+
+.logo-area a span {
+    font-size: 16px;
+}
+
+
+/* チェックボックスを非表示にする */
+.none {
+    display: none;
+}
+
+/* モバイル用のハンバーーボタンとメニュー設定 */
+/* 1～767pxの間だけ適用される */
+
+@media (max-width:767px) {
+    #nav-input-open,
+    #nav-input-open span {
+        display: inline-block;
+        vertical-align:middle;
+        margin:15px 10px;
+        transition:0.2s ease-in-out;
+    }
+
+    /* ハンバーガーのボタン枠の指定 */
+    #nav-inuput-open {
+        position: relative;
+        width: 40px;
+        height: 27px;
+        border: none;
+        cursor: pointer;
+    }
+    /* 3本線の設定 */
+    #nav-input-open span {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #000000;
+    }
+    /* 3本線の位置 */
+    #nav-input-open span:nth-of-type(1) {
+        top: 0;
+        width: 40px;
+    }
+
+    #nav-input-open span:nth-of-type(2) {
+        top: 12px;
+        width: 40px;
+    }
+
+    #nav-input-open span:nth-of-type(3) {
+        top: 24px;
+        width: 40px;
+    }
+
+
+
+.header-navi ul {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-image: url(../img/wood.jpg);
+    margin-top: 0;
+    padding: 30px;
+    text-transform: uppercase;
+    transform: translateX(-105%);
+    transition: 0.3s ease-in-out;
+}
+
+.header-navi ul li {
+    margin-bottom: 2em;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.header-navi ul li a {
+    display: block;
+    padding: 1em 1em 0;
+}
+}
+
+/* チェックが入ったときの動作*/
+/* メニューエリア */
+#nav-input:checked ~ .header-navi ul {
+    transform: translateX(0%);
+}
+
+/* ハンバーガーメニューがXになる */
+#nav-input:checked ~ #nav-input-open span:nth-of-type(1) {
+    transform: translateY(12px)  rotate(-45deg);
+}
+
+#nav-input:checked ~ #nav-input-open span:nth-of-type(2) {
+    opacity: 0;
+}
+
+#nav-input:checked ~ #nav-input-open span:nth-of-type(3) {
+    transform: translateY(-12px)  rotate(45deg);
+}
+
+
+@media (min-width:768px){
+    
+    /* ナビゲーション */
+        .header-navi {
+            width:500px ;
+        }
+        .header-navi ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-transform: uppercase;
+        }
+    }
+
+/* --------------------------------
+              TOP
+-----------------------------------*/
+
+ /*sectionのスタイル */ 
+
+.hero-area {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    /* 水平中央方向 */
+    align-items: center;
+    /* 垂直方向中央 */
+    flex-direction: column;
+    /* 縦に
+    並べる */
+}
+
+@media(min-width:768px){
+    .hero-area {
+        width: 100%;
+        /* ブラウザの横スクロールバー対策 */
+        height: 600px;
+        background-position: center;
+        
+    }
+   
+}
+
+
+/* --------------------------------
+              ABOUT
+-----------------------------------*/
+
+
+
+/* sectionのスタイル */
+
+.about-area {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid;
+    color: #555;
+    
+}
+
+.about-area::before {
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0rem;
+    right: 0rem;
+    border-bottom: 3px solid;
+    content: "";
+}
+
+.h2-about {
+    margin-bottom: 45px;
+    font-size: 36px;
+    font-weight: 200;
+   
+}
+
+.about-item-1,.about-item-2 {
+    margin-bottom: 45px;
+}
+
+.about-txt  {
+    font-family:'Noto Sans';
+    margin: 30px;
+ }
+
+@media(min-width:768px) {
+    .about-area {
+        margin-top: 100px;
+    }
+    
+    .content-1 {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .h2-about {
+        font-size: 120px;
+        flex: 1;
+        margin-left: 30px;
+    }
+
+    .about-item-1 {
+        flex: 1;
+        width: 100%;
+        margin-top: 100px;
+        object-fit: cover;
+    }
+
+    .content-2 {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .about-item-2 {
+        flex: 1;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .about-txt {
+        flex: 1;
+        margin: 0 20px 0 2em; /* 外側の余白（上下と中央配置） */
+        padding: 2em; /* 内側余白 */
+        background: none; /* 元のボックス背景色なし */
+        border: 1px solid #ccc; /* 線の太さ（1px）、種類（実線）、色（#ccc） */
+        position: relative; /* 配置（基準となる位置） */
+    }  
+    .about-txt::after {
+        background-color: #eee; /* ずらしたボックスの背景色 */
+        border: none; /* 枠線なし */
+        content: ''; /* 擬似要素にコンテンツなし */
+        position: absolute; /* 配置（ここを動かす） */
+        top: 7px; /* 上から7pxずらす */
+        left: 7px; /* 左から7pxずらす */
+        width: 100%; /* 幅100%（親要素に合わせる） */
+        height: 100%; /* 高さ100%（親要素に合わせる） */
+        z-index: -1; /* 背景として後ろに表示 */
+    }
+
+    .about-txt p {
+        margin: 0;
+    }
+
+    }
+
+/* --------------------------------
+       COMMITTED TO QUALITY
+-----------------------------------*/
+
+.h2-quality {
+    margin-bottom: 45px;
+    font-size: 36px;
+    font-weight: 200;   
+}
+
+.quality-beans {
+    width: 260px;
+    display: block;
+    margin: auto;
+    
+}
+
+.quality-beans img {
+    border: solid 1px #777;
+    padding: 10px;
+  
+}
+
+.quality-beanstxt   {
+    margin: 30px;
+    font-family:'Noto Sans';
+    color: #555;   
+}
+
+.quality-beanstxt p span {
+    background:linear-gradient(transparent 60%, #ff6 60%);
+}
+
+.roating {
+    width: 260px; 
+    display: block;
+    margin: auto;  
+}
+
+
+.roating img {
+    border: solid 1px #777;
+    padding: 10px;
+}
+.roatingtxt   {
+    margin: 30px;
+    font-family:'Noto Sans';
+    color: #555;
+}
+
+.roatingtxt p span {
+    background:linear-gradient(transparent 60%, #ff6 60%);
+}
+
+@media(min-width:768px){
+    .h2-quality {
+        font-size: 120px;
+        
+        
+    }
+
+    .beans-content {
+        display: flex;
+        flex-direction: reverse;
+    }
+
+    .quality-beans {
+       
+        flex: 1;
+    }
+
+    .quality-beanstxt {
+        flex: 1;
+        margin-top: 100px;
+            
+    }
+
+    .roating-content {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .roating {
+        width: 600px;
+        height: 600px;
+        flex: 1;
+    }
+
+    .roatingtxt {
+        flex: 1;
+        display: flex;
+        margin-top: 0;
+        flex-direction: column;
+        
+    }
+}
+
+/* --------------------------------
+                 MENU
+-----------------------------------*/
+
+
+    .h2-menu {
+        margin-bottom: 40px;
+        font-size: 36px;
+        font-weight: 200;
+       
+    }
+
+    .coffee-menu {
+        color: #000;
+        text-align: center;
+        padding: 60px;
+        background-image: url(../img/wood.jpg); 
+    }
+
+    .coffee-title {
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    .menu-txt li {
+        width: 450px;
+        margin: auto;
+        padding-bottom: 30px;
+
+    }
+
+
+    .name {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+
+
+    .price {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+
+    }
+
+@media(min-width:768px) {
+
+.h2-menu {
+     font-size: 100px;
+}
+
+.coffee-title {
+    font-size: 36px;
+}
+
+.country,.info {
+    font-size: 16px;
+}
+.name {
+    font-size: 18px;
+}
+
+
+.menu-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px;
+}
+
+.menu-content {
+    flex: calc(100%/2 -10px);
+    
+    padding: 20px 20px 0;
+    margin: 10px;
+}
+}
+/* --------------------------------------
+                アクセス
+-------------------------------------- */
+
+
+.access-area {
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.access-content {
+    margin-top:50px;
+    margin-bottom: 50px;
+    text-align: center;
+    /* 水平・垂直方法の中央ぞろえ */
+    margin: 0,auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        
+    }
+
+.car span {  
+    font-weight: bold;
+}
+
+.bus span {
+    font-weight: bold;
+}
+
+/* 写真のスタイル */
+.access-maparea {
+    width: 100%;
+   height: 400px;
+    
+}
+
+
+
+@media(min-width:768px) {
+
+
+/* アクセス情報 */
+/* .access-area {
+    text-align: center;
+} */
+
+.h2-info{
+    font-size: 100px;
+}
+
+.access-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 150px;
+    /* white-space: nowrap; */
+    margin-bottom: 100px; 
+
+
+}
+
+.info-txt {
+    margin-top: 40px;
+}
+/*マップの表示枠の設定 */
+.access-map {
+    border-radius: 50%;
+}
+}
+
+/* --------------------------------------
+                フッター
+--------------------------------------  */
+
+
+/* フッターの全体のスタイル */
+.foot-area {
+    color: #fff;
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(../img/wood.jpg);
+}
+
+/* ロゴ画像のスタイル */
+.foot-logo {
+    color: #000;
+    font-size: 36px;
+    margin: 0 auto 20px;
+}
+
+.foot-logo h1 {
+    font-size: 36px;
+    font-weight: 200;
+}
+
+.txt-content {
+    text-align: center;
+}
+
+.foot-logo h1 span {
+    font-size: 20px;
+}
+
+.txt-content span {
+    color: darkred;
+}
+
+
+
+/* 電話番号のスタイル */
+.text-phone,
+.text-phone a {
+    color: #555;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+}
+
+/* 著作権のスタイル */
+.foot-area_copy {
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    margin: 0 auto 60px;
+}
+
+footer ul li a {
+    color: #000;
+    font-size: 32px;
+}
+
+@media(min-width:768px){ 
+    {a [herf^="tel:"]
+    pointer-events:none;
+}
+
+.foot-logo h1 {
+    font-size: 100px;
+}
+
+.foot-logo h1 span {
+    font-size: 50px;
+}
+
+footer ul {
+    width: 300px;
+    margin: 0 auto 120px;
+}
+footer ul li a {
+    font-size: 42px;
+}
+}
